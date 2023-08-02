@@ -11456,6 +11456,9 @@ body:not(.page-template-fullwidthpage-acf) .page-wrapper > .container {
 /*====================================================================
   #Site Specific
 =====================================================================*/
+h2 {
+  color: #0000ff !important; }
+
 .affiliate {
   width: 100%;
   text-align: center; }
