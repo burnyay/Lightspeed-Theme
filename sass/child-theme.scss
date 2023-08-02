@@ -1,0 +1,64 @@
+/*==================================
+  # Base stylesheets
+===================================*/
+
+// Add your variables into this file. Also add variables to overwrite Bootstrap variables here
+@import "theme/global/child_theme_variables";   
+
+// Loads Bootstrap4                
+@import "assets/bootstrap4";
+
+// Loads the UnderStrap defaults. Just a few classes to incorporate BS in WP
+@import "../src/sass/understrap/understrap/understrap";
+
+// Loads WooCommerce style fixes. Comment out if you aren't using WooCommerce
+@import "../src/sass/understrap/understrap/woocommerce";
+
+/*==================================
+  # Optional files - If you don´t use the corresponding scripts/fonts comment em out
+===================================*/
+
+// Font Awesome Icon font
+@import "assets/font-awesome"; 
+
+// Underscores media styles
+@import "assets/underscores";
+
+
+// Slick Slider
+@import '../assets/vendor/slick/slick.scss'; 
+@import 'assets/slick-theme';                        
+
+
+/*==================================
+  # Lightspeed Stylesheets
+===================================*/
+ 
+@import "theme/base/base_buttons";
+@import "theme/base/base_card";
+@import "theme/base/base_column_layout";
+@import "theme/base/base_forms";
+@import "theme/base/base_header";
+@import "theme/base/base_post_loop";
+@import "theme/base/base_team_loop";
+@import "theme/base/base_body";
+@import "theme/base/base_footer";
+@import "theme/base/helpers"; 
+
+@import "theme/components/buttons";
+@import "theme/components/card";
+@import "theme/components/column_layout";
+@import "theme/components/forms";
+@import "theme/components/post_loop";
+@import "theme/components/team_loop";
+
+@import "theme/global/child_theme"; 
+@import "theme/global/typography"; 
+
+@import "theme/layout/body"; 
+@import "theme/layout/footer"; 
+@import "theme/layout/header";
+
+@import "theme/pages/team_single";
+@import "theme/pages/post_single"; 
+@import "theme/pages/home"; 

@@ -1,0 +1,23 @@
+/*==================================
+  # Body
+===================================*/
+
+@include media-breakpoint-up(md) {
+	.page-wrapper {
+	    min-height: calc(100vh - 500px);
+	}
+}
+
+.page-wrapper {
+	padding-top: ($headerheight - 5px);
+}
+
+body {
+
+	&:not(.page-template-fullwidthpage-acf) {
+		.page-wrapper > .container {
+			margin-top: 2rem;
+		}
+	}
+}
+

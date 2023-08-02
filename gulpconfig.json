@@ -1,0 +1,24 @@
+{
+  "browserSyncOptions" : {
+    "proxy": "https://dev-im0000001-intrigue-media-solutions-understrap-blueprint.local/",
+    "notify": false
+  },
+  "browserSyncWatchFiles" : [
+    "./css/*.min.css",
+    "./js/*.min.js",
+    "./**/*.php"
+  ],
+  "paths" : {
+    "js": "./js",
+    "css": "./css",
+    "img": "./img",
+		"imgsrc": "./src/img",
+    "sass": "./sass",
+    "node": "./node_modules/",
+    "bower": "./bower_components/",
+    "dev": "./src",
+    "dist": "./dist",
+    "distprod": "./dist-product",
+    "vendor": ""
+  }
+}
