@@ -2,26 +2,36 @@
 
 the_sub_field('intro');
 
-$classes = get_the_terms( $post->ID, 'spell_classes' );
-foreach ( $classes as $class ) {
-    $class = $class->name;
-}  
-
 $guide_type = get_field('guide_type');
 
 ?>
 
 <section class="feats-ranked-loop">
  <? $ratings = get_terms([ 
-    'meta_key' => 'tier',
-    'orderby' => 'meta_value_num', 
+    'orderby' => 'term_id', 
+    'order' => 'desc', 
     'taxonomy' => 'rating',
     'hide_empty' => true,
   ]);
 
-  // output a custom query and loop for each
-  foreach ( $ratings as $rating_color ) { 
 
+  // output a custom query and loop for each
+  foreach ( $ratings as $rating ) { 
+
+  if($rating->name == "Sky Blue"): ?>
+    <h3>S Tier</h3>
+  <? elseif($rating->name == "Blue"): ?>
+    <h3>A Tier</h3>
+  <? elseif($rating->name == "Green"): ?>
+    <h3>B Tier</h3>
+  <? elseif($rating->name == "Orange"): ?>
+    <h3>C Tier</h3>
+  <? elseif($rating->name == "Red"): ?>
+    <h3>D Tier</h3>
+  <?endif;?>
+
+ <? 
+ 
   // Set up the base query args
   $feat_query_args = array(
     'post_type' => 'feats',
@@ -29,6 +39,13 @@ $guide_type = get_field('guide_type');
     'orderby' => 'title',
     'order' => 'asc',
     'nopaging' => true,
+    'tax_query' => array(
+      array (
+          'taxonomy' => 'rating',
+          'field' => 'slug',
+          'terms' => $rating->slug,
+      )
+    ),
   );
 
   // Build the query
@@ -41,11 +58,11 @@ $guide_type = get_field('guide_type');
 
         <?php include(locate_template('loop-templates/content-class-feat-ranked.php')); ?>
       <?php endwhile; ?>
-
+  
   <?php endif;
 
 
-
+  wp_reset_query();
   } ?>
   </section>
   <? wp_reset_postdata(); ?>
