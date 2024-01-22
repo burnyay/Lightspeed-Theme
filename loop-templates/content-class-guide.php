@@ -33,9 +33,7 @@
 						$rating_transition = get_field('rating_transition');
 						if ($rating_transition ):
 							echo $rating_transition;
-						endif;
-
-						echo do_shortcode('[adinserter block="7"]'); ?>
+						endif;?>
 
 				</section>
 
@@ -130,5 +128,7 @@
 
 <div class="sidebar left">
 	<?php get_template_part('loop-templates/content-toc-builder'); ?>
-	<?php echo do_shortcode( '[adinserter block="9"]' ); ?>
+	<div class="spotlight-holder">
+		<?php get_template_part('loop-templates/content-sidebar-spotlight'); ?>
+	</div>
 </div>

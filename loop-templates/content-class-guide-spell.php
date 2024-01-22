@@ -124,5 +124,7 @@
 </main>
 
 <div class="sidebar left">
-	<?php echo do_shortcode( '[adinserter block="9"]' ); ?>
+		<div class="spotlight-holder">
+		<?php get_template_part('loop-templates/content-sidebar-spotlight'); ?>
+	</div>
 </div>

@@ -54,7 +54,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 					<a href="https://www.facebook.com/Arcane-Eye-102733701086570"><i class="fa fa-facebook"></i></a>
 					<a href="https://www.instagram.com/the_arcane_eye/"><i class="fa fa-instagram"></i></a>
 					<a href="https://twitter.com/arcane_eye"><i class="fa fa-twitter"></i></a>
-					<a href="https://www.patreon.com/arcaneeye"><i class="fa fa-patreon"></i></a>
+					<a href="https://www.youtube.com/@The_Arcane_Eye"><i class="fa fa-youtube"></i></a>
 				</div>
 				<p>Arcane Eye is unofficial Fan Content permitted under the Fan Content Policy. Portions of the materials used are property of Wizards of the Coast.</p>
 				<p>Dungeons and Dragons is a Trademark of Wizards of the Coast, LLC. / Hasbro, Inc. The information presented on this site about Dungeons and Dragons, both literal and graphical, is copyrighted by Wizards of the Coast. This website is not produced, endorsed, supported, or affiliated with Wizards of the Coast.</p>
@@ -68,9 +68,9 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 </div><!-- #page we need this extra closing tag here -->
 
-<?php wp_footer(); ?>
+<?php wp_footer() ?>
 
-<?php if ( is_singular( 'class-guides' ) || is_singular( 'races' )) { ?>
+<?php if ( is_singular( 'class-guides' ) && get_field('minimalist_class_guide') == FALSE || is_singular( 'races' ) ) { ?>
 	<div class="source-toggler-wrapper">
 		<input id="SourceToggler" class="source-toggler-toggle" name="ToggleButton" type="button" value="Hide Source Toggler">
 		<div class="source-toggler">

@@ -41,45 +41,7 @@ $u_modified_time = get_the_modified_time('U');
 			<article class="main-content">
 			 	<div class="categories"><a href="/players/dnd-5e-races/">DnD 5e Races</a></div>
 			  	<div class="blog-title"><h1 class="blog-single-title"><?php the_title(); ?> Guide 5e</h1></div>
-				<div class="blog-date">
-					<?php 
-
-						echo "<p>Published on ";
-						echo the_time('F j, Y');
-
-					if ($u_modified_time >= $u_time + 86400) { 
-						echo ", Last modified on ";
-						echo the_modified_time('F jS, Y');
-					} 
-
-					echo"</p>"; 
-
-					?>
-					
-				</div>
-			  	<div class="blog-excerpt">
-				    <?php 
-			    	if ( ! has_excerpt() ) {
-					    echo '';
-					} else { 
-					    the_excerpt();
-					}
-				    ?>
-			  	</div>
-				<div class="blog-featured-image">	
-					<?php the_post_thumbnail('blog'); ?>
-					<div class="credit">
-					<?php 
-						$name_of_artist = get_field('name_of_artist');
-						$name_of_the_rights_holder = get_field('name_of_the_rights_holder');
-						$the_title_of_the_art = get_field('the_title_of_the_art');
-
-						if( $name_of_artist ) { ?>
-							<p class="arist-name"><?php echo $name_of_artist; ?> - <?php echo $name_of_the_rights_holder; ?> - <?php echo $the_title_of_the_art; ?></p>
-					<?php } ?>
-					</div>	
-				</div>
-				<div class="affiliate">Arcane Eye may earn a small commission from affiliate links in this article. <a href="/privacy-policy/">Learn more.</a></div>
+				  <?php get_template_part('loop-templates/content-date-excerpt-thumbnail'); ?>
 				<section>
 					<h2 id="what_is_this_guide"><strong>What is this guide?</strong></h2>
 					<p>This guide is meant to give you an idea of whether or not the <? echo strtolower(get_the_title()); ?> will be right for your 5e character build.</p>
@@ -269,6 +231,9 @@ $u_modified_time = get_the_modified_time('U');
 						<li class="ez-toc-page-1 ez-toc-heading-level-2"><a class="ez-toc-link ez-toc-heading-1" href="#sources">Sources Used in This Guide</a></li>
 					</ul>
 				</nav>
+			</div>
+			<div class="spotlight-holder">
+				<? include(locate_template('loop-templates/content-sidebar-spotlight.php')); ?>
 			</div>
 		</aside>
 	</div>

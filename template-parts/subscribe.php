@@ -10,6 +10,6 @@ echo "	<div class='subscribe'>
 		</div>
 		<div class='pop-up-form'>
 		" . do_shortcode( '[gravityform id="4" title="false" description="false" ajax="true"]' ) . " </div>
-		<br><p style='text-align:center; margin-top: 16px;'>Or follow us on <a href='https://www.instagram.com/the_arcane_eye/'>Instagram</a>,<a href='https://twitter.com/arcane_eye'>Twitter</a>, <a href='https://www.facebook.com/thearcaneeye/?modal=admin_todo_tour'>Facebook</a>, and <a href='https://www.patreon.com/arcaneeye'>Patreon</a></p>
+		<br><p style='text-align:center; margin-top: 16px;'>Or follow us on <a href='https://www.instagram.com/the_arcane_eye/'>Instagram</a>, <a href='https://twitter.com/arcane_eye'>Twitter</a>, and <a href='https://www.youtube.com/@The_Arcane_Eye'>YouTube</a>.
 	</div>"; 
 ?>

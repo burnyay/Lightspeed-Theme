@@ -24,7 +24,7 @@
 					 	<li><span style="color: #00ccff;"><strong>Sky Blue</strong></span> is an amazing option. If you do not take this option your character would not be optimized</li>
 					</ul>
 
-					<?php echo do_shortcode('[adinserter block="7"]');?>
+					
 				</section>
 
 				<?php
@@ -123,5 +123,7 @@
 </main>
 
 <div class="sidebar left">
-	<?php echo do_shortcode( '[adinserter block="9"]' ); ?>
+		<div class="spotlight-holder">
+		<?php get_template_part('loop-templates/content-sidebar-spotlight'); ?>
+	</div>
 </div>

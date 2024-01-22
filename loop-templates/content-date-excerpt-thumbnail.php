@@ -24,6 +24,9 @@ if ( ! has_excerpt() ) {
 }
 ?>
 </div>
+<div class="spotlight-holder-mobile">
+	<? include(locate_template('loop-templates/content-sidebar-spotlight.php')); ?>
+</div>
 <div class="blog-featured-image">	
 <?php the_post_thumbnail('blog'); ?>
 <div class="credit">

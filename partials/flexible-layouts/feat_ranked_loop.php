@@ -6,7 +6,7 @@ $guide_type = get_field('guide_type');
 
 ?>
 
-<section class="feats-ranked-loop">
+<div class="feats-ranked-loop single-class-guides">
  <? $ratings = get_terms([ 
     'orderby' => 'term_id', 
     'order' => 'desc', 

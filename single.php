@@ -69,6 +69,9 @@ $u_modified_time = get_the_modified_time('U');
 					}
 				    ?>
 			  	</div>
+				<div class="spotlight-holder-mobile">
+					<? include(locate_template('loop-templates/content-sidebar-spotlight.php')); ?>
+				</div>
 				<div class="blog-featured-image">	
 					<?php the_post_thumbnail('blog'); ?>
 					<div class="credit">
@@ -134,7 +137,7 @@ $u_modified_time = get_the_modified_time('U');
 				<? if(get_field('conclusion')): the_field('conclusion'); endif; ?>	
 				<?php endif; ?>
 					
-					<?php if ( get_field('score') ) { 
+					<?php if ( get_field('short_blurb') ) { 
 						$score = get_field_object('score');
 						$value = $score['value'];
 						$label = $score['choices'][ $value ];?>
@@ -192,7 +195,9 @@ $u_modified_time = get_the_modified_time('U');
   			else: ?>
 			<? echo do_shortcode( '[ez-toc]' ); 
 	  		endif;?>
-	  		<?php echo do_shortcode( '[adinserter block="9"]' ); ?>
+	  			<div class="spotlight-holder">
+		<?php get_template_part('loop-templates/content-sidebar-spotlight'); ?>
+	</div>
 			<?php if (get_field('sortable') === true) {?>
 				<div class="controls-row">
 					<ul id="controls">

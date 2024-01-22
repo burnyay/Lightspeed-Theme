@@ -3,7 +3,7 @@
 	<? $count = 0; $guide_type = get_field('guide_type'); ?>
 
 	<? if ( $guide_type == 'Spells') : ?>
-		<h2 id="best-spells"> Best Spells for  <? echo (get_the_title($post->post_parent));?>s</h2>
+		<h2 id="best-spells"><? echo (get_the_title($post->post_parent));?> Spellcasting in D&amp;D 5e</h2>
 	<? elseif(get_sub_field('disable_title')): ?>
 	<? elseif(!get_sub_field('disable_title')): ?>
 		<h2 id="best-spells"> Best Spells for <?php the_title(); ?></h2>

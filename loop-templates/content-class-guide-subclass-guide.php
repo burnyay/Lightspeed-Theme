@@ -1,7 +1,12 @@
 <main class="post-content">
 	<div class="main-content">
 	  	<div class="blog-title">
-	  		<h1 class="blog-single-title"><?php if (get_field('target_keyword')): echo get_field('target_keyword'); else: the_title(); endif; ?> 5e Guide</h1>
+			<? 	$minimalist_class_guide	= get_field('minimalist_class_guide');
+				if ( $minimalist_class_guide == FALSE): ?> 
+	  				<h1 class="blog-single-title"><?php if (get_field('target_keyword')): echo get_field('target_keyword'); else: the_title(); endif; ?> 5e Guide</h1>
+				<? else: ?>
+			<h1 class="blog-single-title"><?php if (get_field('title')): echo get_field('title'); endif; ?></h1>
+				<? endif; ?>		
 	  	</div>
 			<?php get_template_part('loop-templates/content-date-excerpt-thumbnail'); ?>
     		<?php while ( have_posts() ):
@@ -18,27 +23,27 @@
 					<? echo $intro; ?>
 					</section>
 				<? endif; ?>
-					
-					<section>
-						<h2 id="what-is-this-guide"><? the_title(); ?> 5e Guide Rating Scheme</h2>
-						<p>This guide is meant as a deep dive into the <?php echo the_title();?> <?php echo get_the_title($post->post_parent);?> subclass. For a full overview of the <?php echo get_the_title($post->post_parent);?> class, check out our <?php echo '<a href="'.$parent_permalink.'">'.$parent_title.' 5e Guide</a>';?>.</p>
+					<? 	$minimalist_class_guide	= get_field('minimalist_class_guide');
+						if ( $minimalist_class_guide == FALSE): ?> 
+						<section>
+							<h2 id="what-is-this-guide"><? the_title(); ?> 5e Guide Rating Scheme</h2>
+							<p>This guide is meant as a deep dive into the <?php echo the_title();?> <?php echo get_the_title($post->post_parent);?> subclass. For a full overview of the <?php echo get_the_title($post->post_parent);?> class, check out our <?php echo '<a href="'.$parent_permalink.'">'.$parent_title.' 5e Guide</a>';?>.</p>
 
-						<p>For our full class guides, we use the following color rating scheme:</p>
-						<ul>
-						 	<li><span style="color: #ff0000;"><strong>Red </strong></span>isn’t going to contribute to the effectiveness of your character build at all</li>
-						 	<li><span style="color: #ff6600;"><strong>Orange </strong></span>Situationally good, but a below-average option otherwise</li>
-						 	<li><span style="color: #339966;"><strong>Green </strong></span>is a good option</li>
-						 	<li><span style="color: #0000ff;"><strong>Blue </strong></span>is a great option, you should strongly consider this option for your character</li>
-						 	<li><span style="color: #00ccff;"><strong>Sky Blue</strong></span> is an amazing option. If you do not take this option your character would not be optimized</li>
-						</ul>
-						<p>For our subclass guides, we focus mainly on the <span style="color: #0000ff;"><strong>Blue</strong></span> and <span style="color: #00ccff;"><strong>Sky Blue</strong></span> options, because the other options are discussed in the parent guide or other subclass guides. We also discuss options that normally would be good for a typical build, but underperform when used in a subclass.</p>
+							<p>For our full class guides, we use the following color rating scheme:</p>
+							<ul>
+								<li><span style="color: #ff0000;"><strong>Red </strong></span>isn’t going to contribute to the effectiveness of your character build at all</li>
+								<li><span style="color: #ff6600;"><strong>Orange </strong></span>Situationally good, but a below-average option otherwise</li>
+								<li><span style="color: #339966;"><strong>Green </strong></span>is a good option</li>
+								<li><span style="color: #0000ff;"><strong>Blue </strong></span>is a great option, you should strongly consider this option for your character</li>
+								<li><span style="color: #00ccff;"><strong>Sky Blue</strong></span> is an amazing option. If you do not take this option your character would not be optimized</li>
+							</ul>
+							<p>For our subclass guides, we focus mainly on the <span style="color: #0000ff;"><strong>Blue</strong></span> and <span style="color: #00ccff;"><strong>Sky Blue</strong></span> options, because the other options are discussed in the parent guide or other subclass guides. We also discuss options that normally would be good for a typical build, but underperform when used in a subclass.</p>
 						<?php 
+						endif;
 						$class_guide_intro = get_field('class_guide_intro');
 						if ($class_guide_intro ):
 							echo $class_guide_intro;
-						endif;
-
-						echo do_shortcode('[adinserter block="7"]');?>
+						endif; ?>
 
 					</section>
 
@@ -61,8 +66,10 @@
 						endif;
 
 						the_field('full_subclass_guide_text');
-
-						include(locate_template('loop-templates/content-sources.php'));
+						
+						if ( $minimalist_class_guide == FALSE):
+							include(locate_template('loop-templates/content-sources.php'));
+						endif;
 
 						$parent_class_guide = get_post_parent();
 
@@ -145,5 +152,7 @@
 
 <div class="sidebar left">
 	<?php get_template_part('loop-templates/toc-builder'); ?>
-	<?php echo do_shortcode( '[adinserter block="9"]' ); ?>
+		<div class="spotlight-holder">
+		<?php get_template_part('loop-templates/content-sidebar-spotlight'); ?>
+	</div>
 </div>

@@ -40,45 +40,7 @@ $u_modified_time = get_the_modified_time('U');
 		<main class="post-content">
 			<article class="main-content">
 			  	<div class="blog-title"><h1 class="blog-single-title"><?php the_title(); ?> 5e </h1></div>
-				<div class="blog-date">
-					<?php 
-
-						echo "<p>Published on ";
-						echo the_time('F j, Y');
-
-					if ($u_modified_time >= $u_time + 86400) { 
-						echo ", Last modified on ";
-						echo the_modified_time('F jS, Y');
-					} 
-
-					echo"</p>"; 
-
-					?>
-					
-				</div>
-			  	<div class="blog-excerpt">
-				    <?php 
-			    	if ( ! has_excerpt() ) {
-					    echo '';
-					} else { 
-					    the_excerpt();
-					}
-				    ?>
-			  	</div>
-				<div class="blog-featured-image">	
-					<?php the_post_thumbnail('blog'); ?>
-					<div class="credit">
-					<?php 
-						$name_of_artist = get_field('name_of_artist');
-						$name_of_the_rights_holder = get_field('name_of_the_rights_holder');
-						$the_title_of_the_art = get_field('the_title_of_the_art');
-
-						if( $name_of_artist ) { ?>
-							<p class="arist-name"><?php echo $name_of_artist; ?> - <?php echo $name_of_the_rights_holder; ?> - <?php echo $the_title_of_the_art; ?></p>
-					<?php } ?>
-					</div>	
-				</div>
-				<div class="affiliate">Arcane Eye may earn a small commission from affiliate links in this article. <a href="/privacy-policy/">Learn more.</a></div>
+				<?php get_template_part('loop-templates/content-date-excerpt-thumbnail'); ?>
 				<? $full_feat_guide = get_field('full_feat_guide'); ?>
 				<? $title = get_the_title(); ?>
 				<? $hypenated_name = strtolower(str_replace(' ', '-', $title));
@@ -106,6 +68,7 @@ $u_modified_time = get_the_modified_time('U');
 					<p>We gave <? the_title(); ?> a D Tier rating In our <a href="/players/dnd-5e-feats-tier-list/">5e Feats Tier List</a>, making it an underwhelming feat in most cases.</p>
 					<? endif; ?>
 					<?php the_field('is_it_good'); ?>
+					<?php if (get_field('extra_section')): the_field('extra_section'); endif; ?>
 					<? $interactions = get_field('interactions');
 					if($interactions): ?>
 					<h2 id="<? echo $hypenated_name ?>-interactions"><? the_title(); ?> 5e Interactions</h2>
@@ -213,6 +176,9 @@ $u_modified_time = get_the_modified_time('U');
 					</ul>
 					<? endif; ?>
 				</nav>
+			</div>
+			<div class="spotlight-holder">
+				<? include(locate_template('loop-templates/content-sidebar-spotlight.php')); ?>
 			</div>
 		</aside>	
 	</div>
