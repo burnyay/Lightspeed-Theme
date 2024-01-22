@@ -56,7 +56,10 @@ $u_modified_time = get_the_modified_time('U');
 					 	<li><span style="color: #00ccff;"><strong>Sky Blue</strong></span>&nbsp;is an amazing option. If you do not take this option your character would not be optimized</li>
 					</ul>
 				</section>
-				<? echo do_shortcode('[adinserter block="8"]');?>
+				<div class="tip">
+				<h3>Tasha's Cauldron of Everything Update</h3>
+				<p>Tasha's Cauldron of Everything has added the "Customizing Your Origin" option that may affect the ability score increases, languages, and proficiencies in this guide. To read more about this, visit our <a href="https://arcaneeye.com/players/dnd-5e-races/#Tasha%E2%80%99s_Cauldron_of_Everything_Update">D&D Race Guide</a>.</p>
+				</div>
 				<?php the_content(); ?>
 				<section id="what_are_<? echo strtolower(get_the_title()); ?>">
 					<h2>What are <? $plural = get_field('plural'); if($plural): echo $plural; else: the_title(); endif;?> in 5e?</h2>

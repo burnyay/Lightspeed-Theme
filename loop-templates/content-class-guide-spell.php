@@ -24,8 +24,6 @@
 					 	<li><span style="color: #00ccff;"><strong>Sky Blue</strong></span> is an amazing option. If you do not take this option your character would not be optimized</li>
 					</ul>
 
-					<?php echo do_shortcode('[adinserter block="7"]'); ?>
-
 				</section>
 
 				<?php
