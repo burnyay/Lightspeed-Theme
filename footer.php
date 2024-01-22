@@ -93,6 +93,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 			<input id="saistoggle" class="sais-toggle" name="ToggleButton" type="button" value="Hide SAiS">
 			<input id="sotdqtoggle" class="sotdq-toggle" name="ToggleButton" type="button" value="Hide SotDQ">
 			<input id="gotgtoggle" class="gotg-toggle" name="ToggleButton" type="button" value="Hide GotG">
+			<input id="paitmtoggle" class="paitm-toggle" name="ToggleButton" type="button" value="Hide PAitM">
 			<a style="color: #fff; text-align: center;" href="#sources">What do these mean?</a>
 		</div>
 	</div>

@@ -7386,6 +7386,9 @@ jQuery('a:external').attr('target', '_blank');
   if (jQuery(".gotg").length > 0) {
     jQuery(".gotg-toggle").show();
   };
+  if (jQuery(".paitm").length > 0) {
+    jQuery(".paitm-toggle").show();
+  };
 
 
   jQuery(".tcoe").prepend('<span class="source-link">TCoE</span> ');
@@ -7407,6 +7410,7 @@ jQuery('a:external').attr('target', '_blank');
   jQuery(".sais").prepend('<span class="source-link">SAiS</span> ');
   jQuery(".sotdq").prepend('<span class="source-link">SotDQ</span> ');
   jQuery(".gotg").prepend('<span class="source-link">GotG</span> ');
+  jQuery(".paitm").prepend('<span class="source-link">PAitM</span> ');
 });
 
 
