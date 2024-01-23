@@ -7529,6 +7529,7 @@ jQuery('a:external').attr('target', '_blank');
             };
            })(window, document, "watchElements");
 
+  if (window.innerWidth > 768)  {        
    watchElements(".sidebar-spotlight", function(element) { //change the CSS Selector
      window.dataLayer = window.dataLayer || [];
      window.dataLayer.push({
@@ -7544,3 +7545,4 @@ jQuery('a:external').attr('target', '_blank');
        'elementAttribute': element.getAttribute("ENTER_ATTRIBUTE_HERE") //change the attribute (optional)
      });
  });
+};
