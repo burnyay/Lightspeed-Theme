@@ -7529,7 +7529,7 @@ jQuery('a:external').attr('target', '_blank');
             };
            })(window, document, "watchElements");
 
-   watchElements("sidebar-spotlight", function(element) { //change the CSS Selector
+   watchElements(".sidebar-spotlight", function(element) { //change the CSS Selector
      window.dataLayer = window.dataLayer || [];
      window.dataLayer.push({
        'event': 'elementVisibility',
