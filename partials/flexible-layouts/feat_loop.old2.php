@@ -1,3 +1,5 @@
+<section>
+
 <? $classes = get_the_terms( $post->ID, 'spell_classes' );
 foreach ( $classes as $class ) {
     $class = $class->name;
@@ -8,17 +10,17 @@ $guide_type = get_field('guide_type');
 ?>
 
 <?
-if (has_post_parent() && $guide_type == 'Feats'): ?>
-<section class="feats-ranked-loop">
- <? $ratings = get_terms([ 
+if (has_post_parent() && $guide_type == 'Feats'): 
+  // Get all the ratings and sort by best rating first
+  $ratings = get_terms([ 
     'meta_key' => 'tier',
     'orderby' => 'meta_value_num', 
     'taxonomy' => 'rating',
-    'hide_empty' => true,
+    'hide_empty' => false,
   ]);
 
   // output a custom query and loop for each
-  foreach ( $ratings as $rating_color ) { 
+  foreach ( $ratings as $rating ) { 
 
   // Set up the base query args
   $feat_query_args = array(
@@ -26,6 +28,13 @@ if (has_post_parent() && $guide_type == 'Feats'): ?>
     'post_per_page' => -1,
     'orderby' => 'title',
     'order' => 'asc',
+    'tax_query' => array(
+      array(
+        'taxonomy' => 'rating',
+        'field' => 'slug',
+        'terms' => $rating->slug
+      ),
+   ),
     'nopaging' => true,
   );
 
@@ -35,11 +44,11 @@ if (has_post_parent() && $guide_type == 'Feats'): ?>
   // Open the query loop
   if ( $feat_query->have_posts() ) : ?>
 
-    <h2><?php echo $rating_color->description ?> Feats for <? echo $class ?>s</h2>
+    <h3><?php echo $rating->description ?></h3>
     <ul>
       <?php while ( $feat_query->have_posts() ) : $feat_query->the_post(); ?>
 
-        <?php include(locate_template('loop-templates/content-class-feat-ranked.php')); ?>
+        <?php include(locate_template('loop-templates/content-class-feat.php')); ?>
       <?php endwhile; ?>
     </ul>
   <?php endif;
@@ -47,7 +56,6 @@ if (has_post_parent() && $guide_type == 'Feats'): ?>
   }
 
   wp_reset_postdata(); ?>
-
 
 <? else: ?>
 
